@@ -15,7 +15,7 @@ export default Searchbar;
 
 const styles = StyleSheet.create({
   searchbarContainer: {
-    marginTop: 8,
+    marginTop: 10,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#fff",
