@@ -2,6 +2,7 @@ import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Feather from "react-native-vector-icons/Feather";
 import colors from "../assets/colors/colors";
+import Searchbar from "../components/Searchbar";
 
 const Home = () => {
   return (
@@ -15,6 +16,14 @@ const Home = () => {
           />
           <Feather name="menu" size={24} />
         </View>
+
+        {/* Title */}
+        <View style={styles.titleContainer}>
+          <Text style={styles.subtitle}>Food</Text>
+          <Text style={styles.title}>Delivery</Text>
+        </View>
+
+        <Searchbar />
       </SafeAreaView>
     </View>
   );
@@ -39,5 +48,18 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 50,
+  },
+  titleContainer: {
+    marginTop: 20,
+  },
+  subtitle: {
+    fontSize: 20,
+    fontFamily: "PoppinsRegular",
+    fontWeight: "300",
+    color: colors.textDark,
+  },
+  title: {
+    fontSize: 30,
+    fontFamily: "PoppinsBold",
   },
 });
