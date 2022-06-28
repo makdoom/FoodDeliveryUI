@@ -13,7 +13,7 @@ import Searchbar from "../components/Searchbar";
 import Categories from "../components/Categories";
 import Popular from "../components/Popular";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -40,7 +40,7 @@ const Home = () => {
           <Categories />
 
           {/* Popular section */}
-          <Popular />
+          <Popular navigation={navigation} />
         </SafeAreaView>
       </ScrollView>
     </View>
@@ -52,7 +52,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 60,
     paddingHorizontal: 20,
     backgroundColor: colors.background,
   },

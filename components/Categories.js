@@ -10,6 +10,7 @@ const Categories = () => {
 
       <View style={styles.categoriesListContainer}>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           data={categoriesData}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <CategoryCard item={item} />}

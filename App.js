@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import Details from "./screens/Details";
 import Home from "./screens/Home";
 
 const Stack = createStackNavigator();
@@ -24,6 +25,11 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

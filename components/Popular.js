@@ -3,7 +3,7 @@ import React from "react";
 import popularData from "../assets/data/popularData";
 import PopularCard from "./PopularCard";
 
-const Popular = () => {
+const Popular = ({ navigation }) => {
   return (
     <View style={styles.populartItemContainer}>
       <Text style={styles.title}>Popular</Text>
@@ -11,7 +11,9 @@ const Popular = () => {
       <FlatList
         data={popularData}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <PopularCard item={item} />}
+        renderItem={({ item }) => (
+          <PopularCard item={item} navigation={navigation} />
+        )}
       />
     </View>
   );

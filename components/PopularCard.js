@@ -1,30 +1,44 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import Foundation from "react-native-vector-icons/Foundation";
+import { Foundation, Entypo, MaterialIcons } from "react-native-vector-icons";
 import colors from "../assets/colors/colors";
 
-const PopularCard = ({ item }) => {
+const PopularCard = ({ item, navigation }) => {
   return (
-    <View style={styles.card}>
-      <View style={styles.cardHeader}>
-        <Foundation name="crown" size={20} style={styles.icon} />
-        <Text style={styles.headerTitle}>Top of the week</Text>
-      </View>
-
-      <View style={styles.cardBody}>
-        <View style={styles.cardLeft}>
-          <Text style={styles.dishTitle}>{item.title}</Text>
-          <Text style={styles.dishSubtitle}>Weight {item.weight}</Text>
+    <TouchableOpacity onPress={() => navigation.navigate("Details", { item })}>
+      <View style={styles.card}>
+        <View style={styles.cardHeader}>
+          <Foundation name="crown" size={20} style={styles.icon} />
+          <Text style={styles.headerTitle}>Top of the week</Text>
         </View>
-        <Image
-          source={item.image}
-          style={styles.dishImage}
-          resizeMode="cover"
-        />
-      </View>
 
-      <View></View>
-    </View>
+        <View style={styles.cardBody}>
+          <View style={styles.cardLeft}>
+            <Text style={styles.dishTitle}>{item.title}</Text>
+            <Text style={styles.dishSubtitle}>Weight {item.weight}</Text>
+          </View>
+          <Image
+            source={item.image}
+            style={styles.dishImage}
+            resizeMode="cover"
+          />
+        </View>
+
+        <View style={styles.cardFooter}>
+          <TouchableOpacity style={styles.addBtn}>
+            <MaterialIcons name="add" size={24} style={styles.btnIcon} />
+          </TouchableOpacity>
+          <View style={styles.rating}>
+            <Entypo
+              name="star"
+              style={{ marginRight: 4, color: "gray" }}
+              size={15}
+            />
+            <Text style={styles.ratingText}>5.0</Text>
+          </View>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -35,7 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginVertical: 10,
     borderRadius: 20,
-    elevation: 10,
+    elevation: 15,
     shadowColor: "#bbb",
   },
   cardHeader: {
@@ -58,16 +72,38 @@ const styles = StyleSheet.create({
     height: 125,
     width: 215,
     resizeMode: "contain",
+    marginLeft: 30,
   },
   cardLeft: {
     paddingLeft: 20,
   },
   dishTitle: {
-    fontFamily: "PoppinsSemiBold",
-    fontSize: 17,
+    fontFamily: "PoppinsMedium",
+    fontSize: 16,
   },
   dishSubtitle: {
     fontFamily: "PoppinsRegular",
     color: "gray",
+  },
+  cardFooter: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  addBtn: {
+    backgroundColor: colors.primary,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderBottomLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  rating: {
+    marginLeft: 15,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  ratingText: {
+    color: "gray",
+    fontFamily: "PoppinsMedium",
+    marginTop: 3,
   },
 });
