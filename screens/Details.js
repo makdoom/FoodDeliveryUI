@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "PoppinsSemiBold",
-    fontSize: 18,
+    fontSize: 15,
   },
   right: {
     marginLeft: 40,
